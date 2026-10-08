@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AxioAPI</RootNamespace>
+    <PackageId>AxioAPI</PackageId>
+    <Version>1.0.0</Version>
+    <Description>C# client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data, social scrapers.</Description>
+    <PackageTags>api;seo-api;backlink-api;temp-mail-api;sms-verification-api;proxy-api;scraper-api</PackageTags>
+    <PackageProjectUrl>https://axioapi.com</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="operations.json" LogicalName="AxioAPI.operations.json" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

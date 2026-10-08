@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axioapi"
+version = "1.0.0"
+description = "Python client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data, social scrapers."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["api", "seo api", "backlink api", "temp mail api", "sms verification api", "proxy api", "scraper api"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://axioapi.com"
+Documentation = "https://axioapi.com/docs"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+axioapi = ["operations.json"]

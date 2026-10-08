@@ -1,0 +1,21 @@
+{
+  "name": "axioapi",
+  "version": "1.0.0",
+  "description": "Node.js client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data, social scrapers.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "files": ["src"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/" },
+  "keywords": ["api", "seo api", "backlink api", "temp mail api", "sms verification api", "proxy api", "scraper api", "axioapi"],
+  "license": "MIT",
+  "homepage": "https://axioapi.com",
+  "dependencies": {}
+}

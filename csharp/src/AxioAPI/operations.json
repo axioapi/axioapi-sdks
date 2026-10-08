@@ -1,0 +1,1632 @@
+{
+    "version": "1.0.0",
+    "operations": {
+        "account.billing": {
+            "method": "GET",
+            "path": "/api/v1/account/billing",
+            "summary": "Billing",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "account.limits": {
+            "method": "GET",
+            "path": "/api/v1/account/limits",
+            "summary": "Limits",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "ai-image.artifact": {
+            "method": "GET",
+            "path": "/api/v1/ai/images/{job}/artifact",
+            "summary": "Download validated AI image artifact",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": true,
+            "auth": true
+        },
+        "ai-image.cancel": {
+            "method": "DELETE",
+            "path": "/api/v1/ai/images/{job}",
+            "summary": "Cancel AI image job and purge state",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "ai-image.edit": {
+            "method": "POST",
+            "path": "/api/v1/ai/images/edit",
+            "summary": "Edit or modify AI image",
+            "cost": 8,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "prompt",
+                "image_url",
+                "job_id",
+                "image",
+                "translate",
+                "allow_prompt_only",
+                "width",
+                "height",
+                "strength"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "ai-image.generate": {
+            "method": "POST",
+            "path": "/api/v1/ai/images",
+            "summary": "AI image generate",
+            "cost": 8,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "prompt",
+                "width",
+                "height",
+                "translate",
+                "samples"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "ai-image.get-job": {
+            "method": "GET",
+            "path": "/api/v1/ai/images/{job}",
+            "summary": "Get AI image job status",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "audio.tts": {
+            "method": "POST",
+            "path": "/api/v1/audio/tts",
+            "summary": "Text to speech synthesis",
+            "cost": 5,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "text",
+                "voice"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "audio.tts.artifact": {
+            "method": "GET",
+            "path": "/api/v1/audio/tts/{job}/artifact",
+            "summary": "Download audio artifact",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": true,
+            "auth": true
+        },
+        "audio.tts.cancel": {
+            "method": "DELETE",
+            "path": "/api/v1/audio/tts/{job}",
+            "summary": "Cancel audio job and purge state",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "audio.tts.job": {
+            "method": "GET",
+            "path": "/api/v1/audio/tts/{job}",
+            "summary": "Get audio TTS job status",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "audio.voices": {
+            "method": "GET",
+            "path": "/api/v1/audio/voices",
+            "summary": "Voices",
+            "cost": null,
+            "path_params": [],
+            "query": [
+                "category"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "billing.invoices": {
+            "method": "GET",
+            "path": "/api/v1/billing/invoices",
+            "summary": "Invoices",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "billing.subscriptions-post": {
+            "method": "POST",
+            "path": "/api/v1/billing/subscriptions",
+            "summary": "Subscriptions",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "plan"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "billing.topups-capture-post": {
+            "method": "POST",
+            "path": "/api/v1/billing/topups/{payment}/capture",
+            "summary": "Capture",
+            "cost": null,
+            "path_params": [
+                "payment"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "billing.topups-post": {
+            "method": "POST",
+            "path": "/api/v1/billing/topups",
+            "summary": "Topups",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "pack"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "bin.lookup": {
+            "method": "GET",
+            "path": "/api/v1/bin/{bin}",
+            "summary": "BIN lookup",
+            "cost": 0.5,
+            "path_params": [
+                "bin"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "catalog.capabilities": {
+            "method": "GET",
+            "path": "/api/v1/catalog/capabilities",
+            "summary": "Capabilities",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "catalog.capabilities-by-key": {
+            "method": "GET",
+            "path": "/api/v1/catalog/capabilities/{key}",
+            "summary": "{Key}",
+            "cost": null,
+            "path_params": [
+                "key"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "catalog.config": {
+            "method": "GET",
+            "path": "/api/v1/catalog/config",
+            "summary": "Config",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "catalog.groups": {
+            "method": "GET",
+            "path": "/api/v1/catalog/groups",
+            "summary": "Groups",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "catalog.index": {
+            "method": "GET",
+            "path": "/api/v1/catalog",
+            "summary": "Catalog",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "content.prompt-topics": {
+            "method": "GET",
+            "path": "/api/v1/content/prompts/topics",
+            "summary": "List AI prompt topics catalog",
+            "cost": 0.1,
+            "path_params": [],
+            "query": [
+                "q"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "dns.resolve": {
+            "method": "GET",
+            "path": "/api/v1/dns/{domain}",
+            "summary": "DNS resolve",
+            "cost": 0.5,
+            "path_params": [
+                "domain"
+            ],
+            "query": [
+                "type"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "ecommerce.shopify.catalog": {
+            "method": "GET",
+            "path": "/api/v1/ecommerce/shopify/catalog",
+            "summary": "Shopify store product catalog",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "domain",
+                "limit",
+                "page"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "email.validate": {
+            "method": "POST",
+            "path": "/api/v1/email/validate",
+            "summary": "Validate email",
+            "cost": 1,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "email",
+                "consensus"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "email.validate-batch": {
+            "method": "POST",
+            "path": "/api/v1/email/validate-batch",
+            "summary": "Batch validate emails",
+            "cost": 0.6,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "emails"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "email.validation-jobs.create": {
+            "method": "POST",
+            "path": "/api/v1/email/validation-jobs",
+            "summary": "Create validation job",
+            "cost": 0.6,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "emails",
+                "consensus"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "email.validation-jobs.get": {
+            "method": "GET",
+            "path": "/api/v1/email/validation-jobs/{job}",
+            "summary": "Get validation job",
+            "cost": 0,
+            "path_params": [
+                "job"
+            ],
+            "query": [
+                "page",
+                "per_page"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "grammar.check": {
+            "method": "POST",
+            "path": "/api/v1/grammar/check",
+            "summary": "Grammar check",
+            "cost": 1,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "text",
+                "language"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "local.googlemaps.leads": {
+            "method": "GET",
+            "path": "/api/v1/local/googlemaps/leads",
+            "summary": "Google Maps business leads",
+            "cost": 2,
+            "path_params": [],
+            "query": [
+                "query",
+                "hl",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "openapi.json.index": {
+            "method": "GET",
+            "path": "/api/v1/openapi.json",
+            "summary": "Openapi.json",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
+        },
+        "proxy.close-session": {
+            "method": "DELETE",
+            "path": "/api/v1/proxy/sessions/{session}",
+            "summary": "Close proxy session",
+            "cost": 0,
+            "path_params": [
+                "session"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "proxy.create-session": {
+            "method": "POST",
+            "path": "/api/v1/proxy/sessions",
+            "summary": "Create proxy session",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "country",
+                "protocol",
+                "region",
+                "mode"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "proxy.get-session": {
+            "method": "GET",
+            "path": "/api/v1/proxy/sessions/{session}",
+            "summary": "Get proxy session",
+            "cost": 0,
+            "path_params": [
+                "session"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "proxy.list-locations": {
+            "method": "GET",
+            "path": "/api/v1/proxy/locations",
+            "summary": "List proxy locations",
+            "cost": 0.1,
+            "path_params": [],
+            "query": [
+                "country",
+                "region"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "proxy.rotate-node": {
+            "method": "POST",
+            "path": "/api/v1/proxy/sessions/{session}/rotate",
+            "summary": "Rotate proxy node",
+            "cost": 1,
+            "path_params": [
+                "session"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "seo.backlinks-summary": {
+            "method": "GET",
+            "path": "/api/v1/seo/domains/{domain}/backlinks",
+            "summary": "Backlinks summary",
+            "cost": 2,
+            "path_params": [
+                "domain"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "seo.domain-history": {
+            "method": "GET",
+            "path": "/api/v1/seo/domains/{domain}/history",
+            "summary": "Domain history",
+            "cost": 5,
+            "path_params": [
+                "domain"
+            ],
+            "query": [
+                "months"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "seo.domain-overview": {
+            "method": "GET",
+            "path": "/api/v1/seo/domains/{domain}",
+            "summary": "Domain overview",
+            "cost": 5,
+            "path_params": [
+                "domain"
+            ],
+            "query": [
+                "country"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "seo.keyword-ideas": {
+            "method": "POST",
+            "path": "/api/v1/seo/keywords/ideas",
+            "summary": "Keyword ideas",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "keyword",
+                "country"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "seo.keyword-metrics": {
+            "method": "POST",
+            "path": "/api/v1/seo/keywords/metrics",
+            "summary": "Keyword metrics",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "keywords",
+                "country"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "seo.keyword-suggestions": {
+            "method": "GET",
+            "path": "/api/v1/seo/keywords/suggestions",
+            "summary": "Keyword suggestions",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "country",
+                "lang"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "seo.on-page-audit": {
+            "method": "POST",
+            "path": "/api/v1/seo/on-page-audit",
+            "summary": "On-page audit",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "url"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "sms.messages.list": {
+            "method": "GET",
+            "path": "/api/v1/sms/messages",
+            "summary": "List SMS messages",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "number",
+                "source_id",
+                "page",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "sms.numbers.list": {
+            "method": "GET",
+            "path": "/api/v1/sms/numbers",
+            "summary": "List SMS numbers",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "country",
+                "page",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "sms.numbers.messages": {
+            "method": "GET",
+            "path": "/api/v1/sms/numbers/{number}/messages",
+            "summary": "Get messages for number",
+            "cost": 1,
+            "path_params": [
+                "number"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.biolink.parse": {
+            "method": "GET",
+            "path": "/api/v1/social/biolink",
+            "summary": "Linktree bio & affiliate link parser",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "username"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.bluesky.feed": {
+            "method": "GET",
+            "path": "/api/v1/social/bluesky/profiles/{handle}/feed",
+            "summary": "Bluesky author feed",
+            "cost": 0.5,
+            "path_params": [
+                "handle"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.bluesky.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/bluesky/profiles/{handle}",
+            "summary": "Bluesky profile",
+            "cost": 0.5,
+            "path_params": [
+                "handle"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.devto.articles": {
+            "method": "GET",
+            "path": "/api/v1/social/devto/articles",
+            "summary": "Dev.to articles",
+            "cost": 0.3,
+            "path_params": [],
+            "query": [
+                "tag",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.discord.invite": {
+            "method": "GET",
+            "path": "/api/v1/social/discord/invites/{code}",
+            "summary": "Discord server invite info",
+            "cost": 0.5,
+            "path_params": [
+                "code"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.download.universal": {
+            "method": "POST",
+            "path": "/api/v1/social/download",
+            "summary": "Universal media downloader",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "url"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "social.facebook.ads": {
+            "method": "GET",
+            "path": "/api/v1/social/facebook/ads",
+            "summary": "Facebook Ad Library search",
+            "cost": 2,
+            "path_params": [],
+            "query": [
+                "q",
+                "country",
+                "search_type",
+                "status",
+                "limit",
+                "cursor"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.facebook.page": {
+            "method": "GET",
+            "path": "/api/v1/social/facebook/page",
+            "summary": "Facebook page intelligence",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "page",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.facebook.page-posts": {
+            "method": "GET",
+            "path": "/api/v1/social/facebook/pages/{page}/posts",
+            "summary": "Facebook page latest posts",
+            "cost": 1.5,
+            "path_params": [
+                "page"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.facebook.uid": {
+            "method": "GET",
+            "path": "/api/v1/social/facebook/uid",
+            "summary": "Facebook numeric UID lookup",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "url"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.facebook.video": {
+            "method": "GET",
+            "path": "/api/v1/social/facebook/videos/{id}",
+            "summary": "Facebook video / reel HD link",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.github.activity": {
+            "method": "GET",
+            "path": "/api/v1/social/github/users/{username}/activity",
+            "summary": "GitHub public activity feed",
+            "cost": 0.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.github.repo": {
+            "method": "GET",
+            "path": "/api/v1/social/github/repos/{owner}/{repo}",
+            "summary": "GitHub repository detail",
+            "cost": 0.5,
+            "path_params": [
+                "owner",
+                "repo"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.github.repos": {
+            "method": "GET",
+            "path": "/api/v1/social/github/repos",
+            "summary": "GitHub repository search",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "q",
+                "sort",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.github.user": {
+            "method": "GET",
+            "path": "/api/v1/social/github/users/{username}",
+            "summary": "GitHub user profile",
+            "cost": 0.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.hackernews.stories": {
+            "method": "GET",
+            "path": "/api/v1/social/hackernews/stories",
+            "summary": "Hacker News stories",
+            "cost": 0.3,
+            "path_params": [],
+            "query": [
+                "type",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.instagram.audit": {
+            "method": "GET",
+            "path": "/api/v1/social/instagram/audit",
+            "summary": "Instagram account audit & fake follower check",
+            "cost": 3,
+            "path_params": [],
+            "query": [
+                "username"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.instagram.post": {
+            "method": "GET",
+            "path": "/api/v1/social/instagram/posts/{code}",
+            "summary": "Instagram post / reel detail",
+            "cost": 1,
+            "path_params": [
+                "code"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.instagram.posts": {
+            "method": "GET",
+            "path": "/api/v1/social/instagram/profiles/{username}/posts",
+            "summary": "Instagram latest posts & reels",
+            "cost": 1.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.instagram.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/instagram/profiles/{username}",
+            "summary": "Instagram public profile",
+            "cost": 1.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.linkedin.company": {
+            "method": "GET",
+            "path": "/api/v1/social/linkedin/companies/{company}",
+            "summary": "LinkedIn company page",
+            "cost": 2,
+            "path_params": [
+                "company"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.linkedin.job-detail": {
+            "method": "GET",
+            "path": "/api/v1/social/linkedin/jobs/{id}",
+            "summary": "LinkedIn job detail",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.linkedin.jobs": {
+            "method": "GET",
+            "path": "/api/v1/social/linkedin/jobs",
+            "summary": "LinkedIn guest job search",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "keywords",
+                "location",
+                "start",
+                "count"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.linkedin.lead": {
+            "method": "GET",
+            "path": "/api/v1/social/linkedin/leads/{vanity}",
+            "summary": "LinkedIn B2B decision maker lead",
+            "cost": 2,
+            "path_params": [
+                "vanity"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.linkedin.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/linkedin/profile",
+            "summary": "LinkedIn profile intelligence",
+            "cost": 2,
+            "path_params": [],
+            "query": [
+                "vanity",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.mastodon.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/mastodon/accounts/{acct}",
+            "summary": "Mastodon profile",
+            "cost": 0.5,
+            "path_params": [
+                "acct"
+            ],
+            "query": [
+                "instance"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.pinterest.pin": {
+            "method": "GET",
+            "path": "/api/v1/social/pinterest/pins/{id}",
+            "summary": "Pinterest pin detail",
+            "cost": 0.5,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.pinterest.pins": {
+            "method": "GET",
+            "path": "/api/v1/social/pinterest/users/{username}/pins",
+            "summary": "Pinterest user pins",
+            "cost": 1,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.reddit.comments": {
+            "method": "GET",
+            "path": "/api/v1/social/reddit/posts/{id}/comments",
+            "summary": "Reddit post comments",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.reddit.intent-search": {
+            "method": "GET",
+            "path": "/api/v1/social/reddit/intent-search",
+            "summary": "Reddit buying intent search & social listening",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "subreddit",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.reddit.subreddit": {
+            "method": "GET",
+            "path": "/api/v1/social/reddit/subreddits/{subreddit}/posts",
+            "summary": "Reddit subreddit posts",
+            "cost": 1,
+            "path_params": [
+                "subreddit"
+            ],
+            "query": [
+                "sort",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.spotify.track": {
+            "method": "GET",
+            "path": "/api/v1/social/spotify/tracks/{id}",
+            "summary": "Spotify track oEmbed",
+            "cost": 0.3,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.substack.posts": {
+            "method": "GET",
+            "path": "/api/v1/social/substack/{publication}/posts",
+            "summary": "Substack newsletter posts",
+            "cost": 0.5,
+            "path_params": [
+                "publication"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.telegram.channel": {
+            "method": "GET",
+            "path": "/api/v1/social/telegram/channels/{channel}",
+            "summary": "Telegram channel feed preview",
+            "cost": 0.5,
+            "path_params": [
+                "channel"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.threads.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/threads/profiles/{username}",
+            "summary": "Threads public profile",
+            "cost": 1,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.comments": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/comments",
+            "summary": "TikTok video comments",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "url",
+                "limit",
+                "cursor"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.creator-leads": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/creators/{username}/leads",
+            "summary": "TikTok creator leads & showcase",
+            "cost": 1.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.feed": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/feed",
+            "summary": "TikTok trending feed",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "region",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/profile",
+            "summary": "TikTok creator profile & stats",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "handle",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.shop-products": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/shop/products",
+            "summary": "TikTok Shop public product catalog",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "region",
+                "url",
+                "q",
+                "sort",
+                "page",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.trends": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/trends",
+            "summary": "TikTok trending & viral videos",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "region",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.video": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/video",
+            "summary": "TikTok video metadata",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "url"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.tiktok.videos": {
+            "method": "GET",
+            "path": "/api/v1/social/tiktok/users/{username}/videos",
+            "summary": "TikTok user latest videos",
+            "cost": 1.5,
+            "path_params": [
+                "username"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.twitch.channel": {
+            "method": "GET",
+            "path": "/api/v1/social/twitch/channels/{channel}",
+            "summary": "Twitch channel status",
+            "cost": 0.5,
+            "path_params": [
+                "channel"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.twitter.profile": {
+            "method": "GET",
+            "path": "/api/v1/social/twitter/profile",
+            "summary": "X (Twitter) GraphQL profile",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "username",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.twitter.timeline": {
+            "method": "GET",
+            "path": "/api/v1/social/twitter/users/{username}/timeline",
+            "summary": "X (Twitter) user timeline",
+            "cost": 1,
+            "path_params": [
+                "username"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.twitter.trends": {
+            "method": "GET",
+            "path": "/api/v1/social/twitter/trends",
+            "summary": "X (Twitter) trending topics",
+            "cost": 0.3,
+            "path_params": [],
+            "query": [
+                "country",
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.twitter.tweet": {
+            "method": "GET",
+            "path": "/api/v1/social/twitter/tweets/{id}",
+            "summary": "X (Twitter) tweet oEmbed",
+            "cost": 0.5,
+            "path_params": [
+                "id"
+            ],
+            "query": [
+                "url"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube-videos": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}",
+            "summary": "{Id}",
+            "cost": null,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.channel-about": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/channels/{handle}/about",
+            "summary": "YouTube channel subscribers & about",
+            "cost": 0.5,
+            "path_params": [
+                "handle"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.channel-videos": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/channels/{channel}/videos",
+            "summary": "YouTube channel latest videos",
+            "cost": 0.5,
+            "path_params": [
+                "channel"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.comments": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}/comments",
+            "summary": "YouTube video comments",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [
+                "limit"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.download": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}/download",
+            "summary": "YouTube stream & audio download links",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.playlist": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/playlists/{id}",
+            "summary": "YouTube playlist latest videos",
+            "cost": 0.3,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.search": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/search",
+            "summary": "YouTube video search (no API key)",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "q"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.video-details": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}/details",
+            "summary": "YouTube video details, tags & dislikes",
+            "cost": 1,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.video-stats": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}/stats",
+            "summary": "YouTube video engagement & dislikes",
+            "cost": 0.5,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.video-tags": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/videos/{id}/tags",
+            "summary": "YouTube video SEO tags",
+            "cost": 0.5,
+            "path_params": [
+                "id"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "social.youtube.viral-outliers": {
+            "method": "GET",
+            "path": "/api/v1/social/youtube/channels/{channel}/outliers",
+            "summary": "YouTube viral outlier videos",
+            "cost": 1,
+            "path_params": [
+                "channel"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "tech.profile": {
+            "method": "GET",
+            "path": "/api/v1/tech/{domain}",
+            "summary": "Technology profile",
+            "cost": 1,
+            "path_params": [
+                "domain"
+            ],
+            "query": [
+                "url"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.create-inbox": {
+            "method": "POST",
+            "path": "/api/v1/temp-mail/inboxes",
+            "summary": "Create inbox",
+            "cost": 1,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "label",
+                "ttl_minutes"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.delete-inbox": {
+            "method": "DELETE",
+            "path": "/api/v1/temp-mail/inboxes/{inbox}",
+            "summary": "Delete inbox",
+            "cost": 0,
+            "path_params": [
+                "inbox"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.get-inbox": {
+            "method": "GET",
+            "path": "/api/v1/temp-mail/inboxes/{inbox}",
+            "summary": "Get inbox",
+            "cost": 0.1,
+            "path_params": [
+                "inbox"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.get-message": {
+            "method": "GET",
+            "path": "/api/v1/temp-mail/inboxes/{inbox}/messages/{message}",
+            "summary": "Get message",
+            "cost": 0.1,
+            "path_params": [
+                "inbox",
+                "message"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.list-messages": {
+            "method": "GET",
+            "path": "/api/v1/temp-mail/inboxes/{inbox}/messages",
+            "summary": "List messages",
+            "cost": 0.1,
+            "path_params": [
+                "inbox"
+            ],
+            "query": [
+                "limit",
+                "offset"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "temporary-email.rotate-address": {
+            "method": "POST",
+            "path": "/api/v1/temp-mail/inboxes/{inbox}/rotate",
+            "summary": "Rotate inbox address",
+            "cost": 1,
+            "path_params": [
+                "inbox"
+            ],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "text.generate": {
+            "method": "POST",
+            "path": "/api/v1/text/generate",
+            "summary": "Text generate",
+            "cost": 2,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "prompt",
+                "max_tokens",
+                "temperature",
+                "model"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "tts.voices": {
+            "method": "GET",
+            "path": "/api/v1/tts/voices",
+            "summary": "List TTS voices catalog",
+            "cost": 0.1,
+            "path_params": [],
+            "query": [
+                "category"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "verify.wait": {
+            "method": "POST",
+            "path": "/api/v1/verify/wait",
+            "summary": "Wait for verification code",
+            "cost": 5,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "number",
+                "since"
+            ],
+            "binary": false,
+            "auth": true
+        },
+        "video.tags": {
+            "method": "GET",
+            "path": "/api/v1/videos/{video}/tags",
+            "summary": "Video tags",
+            "cost": 0.5,
+            "path_params": [
+                "video"
+            ],
+            "query": [
+                "lang"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "video.transcript": {
+            "method": "GET",
+            "path": "/api/v1/videos/{video}/transcript",
+            "summary": "Video transcript",
+            "cost": 1.5,
+            "path_params": [
+                "video"
+            ],
+            "query": [
+                "lang"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        }
+    }
+}
