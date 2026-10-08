@@ -17,6 +17,14 @@ var (
 	ErrRateLimit           = errors.New("axioapi: rate limited")
 )
 
+var sentinelByStatus = map[int]error{
+	http.StatusUnauthorized:        ErrAuthentication,
+	http.StatusPaymentRequired:     ErrInsufficientCredits,
+	http.StatusNotFound:            ErrNotFound,
+	http.StatusUnprocessableEntity: ErrValidation,
+	http.StatusTooManyRequests:     ErrRateLimit,
+}
+
 // APIError is returned for every non-2xx response. Use errors.Is with the Err* sentinels or errors.As to read fields.
 type APIError struct {
 	Status    int
@@ -43,19 +51,7 @@ func (e *APIError) Error() string {
 
 // Is lets errors.Is(err, axioapi.ErrRateLimit) and friends match by HTTP status.
 func (e *APIError) Is(target error) bool {
-	switch target {
-	case ErrAuthentication:
-		return e.Status == 401
-	case ErrInsufficientCredits:
-		return e.Status == 402
-	case ErrNotFound:
-		return e.Status == 404
-	case ErrValidation:
-		return e.Status == 422
-	case ErrRateLimit:
-		return e.Status == 429
-	}
-	return false
+	return sentinelByStatus[e.Status] == target
 }
 
 // ConnectionError means the request never produced an HTTP response (DNS, TLS, timeout).
@@ -63,37 +59,42 @@ type ConnectionError struct{ Message string }
 
 func (e *ConnectionError) Error() string { return "axioapi: " + e.Message }
 
+type errorBody struct {
+	Message string `json:"message"`
+	Error   *struct {
+		Code      string              `json:"code"`
+		Message   string              `json:"message"`
+		RequestID string              `json:"request_id"`
+		Fields    map[string][]string `json:"fields"`
+	} `json:"error"`
+}
+
 func buildError(resp *http.Response, content []byte) *APIError {
 	e := &APIError{Status: resp.StatusCode, Message: "HTTP " + strconv.Itoa(resp.StatusCode), RequestID: resp.Header.Get("X-Request-Id")}
-	var body struct {
-		Message string `json:"message"`
-		Error   *struct {
-			Code      string              `json:"code"`
-			Message   string              `json:"message"`
-			RequestID string              `json:"request_id"`
-			Fields    map[string][]string `json:"fields"`
-		} `json:"error"`
-	}
+	var body errorBody
 	if json.Unmarshal(content, &body) == nil {
 		e.Body = content
-		if body.Message != "" {
-			e.Message = body.Message
-		}
-		if body.Error != nil {
-			if body.Error.Message != "" {
-				e.Message = body.Error.Message
-			}
-			e.Code = body.Error.Code
-			if body.Error.RequestID != "" {
-				e.RequestID = body.Error.RequestID
-			}
-			e.Fields = body.Error.Fields
-		}
+		applyBody(e, body)
 	}
-	if resp.StatusCode == 429 {
-		if secs, err := strconv.ParseFloat(resp.Header.Get("Retry-After"), 64); err == nil {
-			e.RetryAfter = secs
-		}
+	if resp.StatusCode == http.StatusTooManyRequests {
+		e.RetryAfter, _ = strconv.ParseFloat(resp.Header.Get("Retry-After"), 64)
 	}
 	return e
+}
+
+func applyBody(e *APIError, body errorBody) {
+	if body.Message != "" {
+		e.Message = body.Message
+	}
+	if body.Error == nil {
+		return
+	}
+	if body.Error.Message != "" {
+		e.Message = body.Error.Message
+	}
+	e.Code = body.Error.Code
+	e.Fields = body.Error.Fields
+	if body.Error.RequestID != "" {
+		e.RequestID = body.Error.RequestID
+	}
 }

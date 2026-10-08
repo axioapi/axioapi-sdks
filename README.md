@@ -37,13 +37,12 @@ Every SDK has the same shape:
 - **Files.** Endpoints that return images or audio return bytes.
 - **No heavy dependencies.** Python, Node.js, Ruby and Go use only the standard library; PHP needs `ext-curl`, Java needs Jackson, C# uses `System.Text.Json`.
 
-All 118 operations (method, path, parameters, credit cost) live in [spec/operations.json](spec/operations.json), generated from the live OpenAPI document.
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the module layout. All 118 operations (method, path, parameters, credit cost) live in [spec/operations.json](spec/operations.json), generated from the live OpenAPI document.
 
 ## Development
 
 ```
-php sdk/tools/generate_registry.php     # rebuild spec/operations.json from the app
-python sdk/tools/sync_spec.py           # copy it into every package
+bash sdk/tools/update_api.sh              # after any API change: rebuild the registry and copy it into every SDK
 bash sdk/tools/test_all.sh              # run every test suite against the shared mock server
 ```
 

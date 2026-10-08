@@ -59,7 +59,7 @@ class ClientTest < Minitest::Test
     c = client
     c.operations.each_key do |key|
       group, rest = key.split('.', 2)
-      assert_equal key, c.resolve(group, rest)
+      assert_equal key, c.registry.resolve(group, rest)
     end
     assert_operator c.operations.size, :>, 100
   end

@@ -28,9 +28,9 @@ System.out.println(backlinks.get("partial") + " " + backlinks.get("sources").fie
 
 try {
     client.group("verify").call("wait", Map.of("number", "+12025550192"));
-} catch (AxioApiException.RateLimitException e) {
+} catch (RateLimitException e) {
     System.out.println("retry in " + e.getRetryAfter() + "s, request " + e.getRequestId());
-} catch (AxioApiException.InsufficientCreditsException e) {
+} catch (InsufficientCreditsException e) {
     System.out.println("top up credits");
 }
 ```

@@ -9,8 +9,8 @@ export AXIOAPI_KEY=ak_...
 
 ```php
 use AxioAPI\Client;
-use AxioAPI\InsufficientCreditsException;
-use AxioAPI\RateLimitException;
+use AxioAPI\Exception\InsufficientCreditsException;
+use AxioAPI\Exception\RateLimitException;
 
 $client = new Client();            // or new Client('ak_...')
 
@@ -37,7 +37,7 @@ try {
 - Returns the `data` field. `$client->request('GET', '/api/v1/account/limits', raw: true)` returns the whole envelope.
 - Image and audio endpoints return the raw bytes as a string.
 - Options: `new Client($key, ['base_url' => ..., 'timeout' => 30.0, 'max_retries' => 2])`. 429 is retried for all methods; 502/503/504 and network errors only for GET and DELETE.
-- Errors extend `AxioAPI\AxioAPIException` (`status`, `errorCode`, `requestId`, `fields`).
+- Errors extend `AxioAPI\Exception\AxioAPIException` (`status`, `errorCode`, `requestId`, `fields`).
 
 Docs: https://axioapi.com/docs · Guides: https://axioapi.com/guides · License: MIT
 

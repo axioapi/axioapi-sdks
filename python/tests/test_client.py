@@ -50,7 +50,7 @@ class ClientTest(unittest.TestCase):
         c = client()
         for key in c.operations():
             group, _, rest = key.partition(".")
-            self.assertIsNotNone(c._resolve(group, rest), key)
+            self.assertIsNotNone(c.registry.resolve(group, rest), key)
 
     def test_none_params_are_dropped(self):
         data = client().seo.keyword_suggestions(q="x", country=None)

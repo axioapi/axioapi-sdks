@@ -110,16 +110,16 @@ class AxioApiTest {
 
     @Test
     void errorsMapToClasses() {
-        AxioApiException.AuthenticationException auth = assertThrows(AxioApiException.AuthenticationException.class, () -> client("wrong", 2).group("account").call("limits"));
+        AuthenticationException auth = assertThrows(AuthenticationException.class, () -> client("wrong", 2).group("account").call("limits"));
         assertEquals(401, auth.getStatus());
         assertEquals("req_test_1", auth.getRequestId());
-        assertThrows(AxioApiException.InsufficientCreditsException.class, () -> client("nocredit", 2).group("account").call("limits"));
-        assertThrows(AxioApiException.NotFoundException.class, () -> client().request("GET", "/api/v1/temp-mail/inboxes/missing", null, null, false));
-        AxioApiException.ValidationException validation = assertThrows(AxioApiException.ValidationException.class, () -> client().group("seo").call("onPageAudit"));
+        assertThrows(InsufficientCreditsException.class, () -> client("nocredit", 2).group("account").call("limits"));
+        assertThrows(NotFoundException.class, () -> client().request("GET", "/api/v1/temp-mail/inboxes/missing", null, null, false));
+        ValidationException validation = assertThrows(ValidationException.class, () -> client().group("seo").call("onPageAudit"));
         assertEquals(List.of("The url field is required."), validation.getFields().get("url"));
         AxioApiException other = assertThrows(AxioApiException.class, () -> client().request("GET", "/api/v1/boom", null, null, false));
         assertEquals(500, other.getStatus());
-        assertFalse(other instanceof AxioApiException.AuthenticationException);
+        assertFalse(other instanceof AuthenticationException);
     }
 
     @Test
@@ -130,7 +130,7 @@ class AxioApiTest {
     @Test
     void retries429GivesUpWithRetryAfterAndPost503NotRetried() throws Exception {
         assertEquals(2, client().request("GET", "/api/v1/ratelimited", null, null, false).get("attempts").asInt());
-        AxioApiException.RateLimitException rate = assertThrows(AxioApiException.RateLimitException.class, () -> client("test_key", 1).request("POST", "/api/v1/always429", null, Map.of(), false));
+        RateLimitException rate = assertThrows(RateLimitException.class, () -> client("test_key", 1).request("POST", "/api/v1/always429", null, Map.of(), false));
         assertEquals(7.0, rate.getRetryAfter());
         assertTrue(get("/__hits").contains("\"always429\": 2") || get("/__hits").contains("\"always429\":2"));
         assertThrows(AxioApiException.class, () -> client().request("POST", "/api/v1/post503", null, Map.of(), false));
@@ -141,7 +141,7 @@ class AxioApiTest {
     @Test
     void connectionError() {
         AxioApi c = AxioApi.builder("k").baseUrl("http://127.0.0.1:1").maxRetries(0).timeout(Duration.ofSeconds(2)).build();
-        assertThrows(AxioApiException.ConnectionException.class, () -> c.group("account").call("limits"));
+        assertThrows(ConnectionException.class, () -> c.group("account").call("limits"));
         assertNotNull(c);
     }
 }

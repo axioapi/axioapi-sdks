@@ -14,8 +14,7 @@
         "phpunit/phpunit": "^10.5 || ^11.0 || ^12.0"
     },
     "autoload": {
-        "psr-4": { "AxioAPI\\": "src/" },
-        "files": ["src/Exceptions.php"]
+        "psr-4": { "AxioAPI\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": { "AxioAPI\\Tests\\": "tests/" }

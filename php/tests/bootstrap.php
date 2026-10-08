@@ -7,10 +7,9 @@ foreach ([__DIR__.'/../vendor/autoload.php', __DIR__.'/../../../vendor/autoload.
         break;
     }
 }
-require_once __DIR__.'/../src/Exceptions.php';
 spl_autoload_register(static function (string $class): void {
     if (str_starts_with($class, 'AxioAPI\\') && ! str_starts_with($class, 'AxioAPI\\Tests\\')) {
-        $file = __DIR__.'/../src/'.substr($class, 8).'.php';
+        $file = __DIR__.'/../src/'.str_replace('\\', '/', substr($class, 8)).'.php';
         if (is_file($file)) {
             require_once $file;
         }
