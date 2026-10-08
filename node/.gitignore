@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/__pycache__/
+**/*.egg-info/
+**/dist/
+**/vendor/
+**/target/
+**/.phpunit.result.cache
+**/.phpunit.cache/
+*.gem
