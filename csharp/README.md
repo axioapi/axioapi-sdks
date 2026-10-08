@@ -22,11 +22,11 @@ $env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
 ### 2. Install
 
 ```bash
-git clone https://github.com/axioapi/axioapi-dotnet.git
-dotnet add reference ./axioapi-dotnet/src/AxioAPI/AxioAPI.csproj
+git clone https://github.com/axioapi/axioapi-dotnet.git ../axioapi-dotnet
+dotnet add reference ../axioapi-dotnet/src/AxioAPI/AxioAPI.csproj
 ```
 
-Requires .NET 6+. No dependencies beyond `System.Text.Json`. Once released on NuGet: `dotnet add package AxioAPI`.
+Clone next to your project (not inside it). Requires .NET 6+. No dependencies beyond `System.Text.Json`. Once released on NuGet: `dotnet add package AxioAPI`.
 
 ### 3. Make your first call
 
