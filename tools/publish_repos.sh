@@ -44,7 +44,7 @@ push_prefix() {
     local prefix="$1" repo="$2" branch="split-$2"
     git -C "$ROOT" branch -D "$branch" >/dev/null 2>&1 || true
     git -C "$ROOT" subtree split --prefix="$prefix" -b "$branch" >/dev/null
-    git -C "$ROOT" push --force "git@github.com:$ORG/$repo.git" "$branch:main"
+    git -C "$ROOT" push --force "https://github.com/$ORG/$repo.git" "$branch:main"
     git -C "$ROOT" branch -D "$branch" >/dev/null
     echo "pushed  $prefix -> $ORG/$repo"
 }
