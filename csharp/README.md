@@ -2,10 +2,46 @@
 
 C# client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. .NET 6+, no dependencies beyond `System.Text.Json`.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-dotnet add package AxioAPI
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```bash
+git clone https://github.com/axioapi/axioapi-dotnet.git
+dotnet add reference ./axioapi-dotnet/src/AxioAPI/AxioAPI.csproj
+```
+
+Requires .NET 6+. No dependencies beyond `System.Text.Json`. Once released on NuGet: `dotnet add package AxioAPI`.
+
+### 3. Make your first call
+
+```csharp
+using AxioAPI;
+
+using var client = new AxioApiClient();   // reads AXIOAPI_KEY
+Console.WriteLine(await client.Group("account").CallAsync("limits"));
+Console.WriteLine(await client.Group("seo").CallAsync("keywordMetrics", new { keywords = new[] { "api gateway" }, country = "us" }));
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```csharp
 using AxioAPI;

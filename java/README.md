@@ -2,13 +2,61 @@
 
 Java client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. Java 11+, depends only on Jackson.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
+```bash
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
+```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+With [JitPack](https://jitpack.io) (no account needed):
+
 ```xml
+<repositories>
+  <repository><id>jitpack.io</id><url>https://jitpack.io</url></repository>
+</repositories>
+
 <dependency>
-  <groupId>com.axioapi</groupId>
-  <artifactId>axioapi</artifactId>
-  <version>1.0.0</version>
+  <groupId>com.github.axioapi</groupId>
+  <artifactId>axioapi-java</artifactId>
+  <version>main-SNAPSHOT</version>
 </dependency>
 ```
+
+Or `git clone https://github.com/axioapi/axioapi-java && mvn install`, then use `com.axioapi:axioapi:1.0.0`. Requires Java 11+; depends only on Jackson.
+
+### 3. Make your first call
+
+```java
+import com.axioapi.AxioApi;
+import java.util.List;
+import java.util.Map;
+
+public class Hello {
+    public static void main(String[] args) {
+        AxioApi client = AxioApi.builder(null).build();   // null reads AXIOAPI_KEY
+        System.out.println(client.group("account").call("limits"));
+        System.out.println(client.group("seo").call("keywordMetrics", Map.of("keywords", List.of("api gateway"), "country", "us")));
+    }
+}
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```java
 import com.axioapi.AxioApi;

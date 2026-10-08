@@ -2,10 +2,45 @@
 
 Node.js client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. Zero dependencies, ESM, TypeScript types included. Requires Node.js 18+.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-npm install axioapi
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```bash
+npm install github:axioapi/axioapi-node
+```
+
+Requires Node.js 18+. No dependencies, ESM, TypeScript types included. Once released on npm: `npm install axioapi`.
+
+### 3. Make your first call
+
+```js
+import { AxioAPI } from 'axioapi';
+
+const client = new AxioAPI();           // reads AXIOAPI_KEY
+console.log(await client.account.limits());
+console.log(await client.seo.keywordMetrics({ keywords: ['api gateway'], country: 'us' }));
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```js
 import { AxioAPI, RateLimitError, InsufficientCreditsError } from 'axioapi';

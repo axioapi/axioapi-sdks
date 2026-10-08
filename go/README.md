@@ -2,10 +2,57 @@
 
 Go client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. Standard library only. Go 1.21+.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-go get github.com/axioapi/axioapi-go
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```bash
+go get github.com/axioapi/axioapi-go@main
+```
+
+Requires Go 1.21+. Standard library only.
+
+### 3. Make your first call
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	axioapi "github.com/axioapi/axioapi-go"
+)
+
+func main() {
+	client, err := axioapi.New("") // empty reads AXIOAPI_KEY
+	if err != nil {
+		panic(err)
+	}
+	limits, err := client.Group("account").Call(context.Background(), "limits", nil)
+	fmt.Println(string(limits), err)
+}
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```go
 package main

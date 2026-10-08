@@ -2,10 +2,46 @@
 
 Ruby client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. Standard library only. Ruby 2.7+.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-gem install axioapi
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```ruby
+# Gemfile
+gem 'axioapi', git: 'https://github.com/axioapi/axioapi-ruby.git'
+```
+
+Then `bundle install`. Requires Ruby 2.7+. Standard library only. Once released on RubyGems: `gem install axioapi`.
+
+### 3. Make your first call
+
+```ruby
+require 'axioapi'
+
+client = AxioAPI::Client.new            # reads AXIOAPI_KEY
+p client.account.limits
+p client.seo.keyword_metrics(keywords: ['api gateway'], country: 'us')
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```ruby
 require 'axioapi'

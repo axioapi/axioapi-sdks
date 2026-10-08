@@ -2,10 +2,45 @@
 
 Python client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. No dependencies.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-pip install axioapi
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```bash
+pip install git+https://github.com/axioapi/axioapi-python.git
+```
+
+Requires Python 3.9+. No dependencies. Once released on PyPI: `pip install axioapi`.
+
+### 3. Make your first call
+
+```python
+from axioapi import AxioAPI
+
+client = AxioAPI()                      # reads AXIOAPI_KEY
+print(client.account.limits())          # your plan and rate limits
+print(client.seo.keyword_metrics(keywords=["api gateway"], country="us"))
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```python
 from axioapi import AxioAPI, RateLimitError, InsufficientCreditsError

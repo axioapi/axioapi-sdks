@@ -2,10 +2,47 @@
 
 PHP client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. Requires PHP 8.1+ with `ext-curl`.
 
+<!-- start:begin -->
+## Get started in 3 steps
+
+### 1. Get an API key
+
+[Create a free account](https://axioapi.com/portal/register), then open [API keys](https://axioapi.com/account/tokens), create a key and copy it. New accounts receive free credits after verification, enough to try every endpoint.
+
+Set it as an environment variable (the SDK reads `AXIOAPI_KEY`):
+
 ```bash
-composer require axioapi/axioapi
-export AXIOAPI_KEY=ak_...
+export AXIOAPI_KEY=ak_your_key        # macOS / Linux
 ```
+
+```powershell
+$env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
+```
+
+### 2. Install
+
+```bash
+composer config repositories.axioapi vcs https://github.com/axioapi/axioapi-php
+composer require axioapi/axioapi:dev-main
+```
+
+Requires PHP 8.1+ with `ext-curl`. Once released on Packagist: `composer require axioapi/axioapi`.
+
+### 3. Make your first call
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+$client = new AxioAPI\Client();         // reads AXIOAPI_KEY
+var_dump($client->account->limits());
+var_dump($client->seo->keywordMetrics(['keywords' => ['api gateway'], 'country' => 'us']));
+```
+
+Every endpoint works the same way: `client.<group>.<operation>(params)`. See the examples below and the [full reference](https://axioapi.com/docs).
+<!-- start:end -->
+
+## More examples
 
 ```php
 use AxioAPI\Client;
