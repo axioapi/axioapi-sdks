@@ -1,47 +1,24 @@
-# AxioAPI .NET SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API
+"""Rewrites the H1 of each SDK README and appends the shared, keyword-rich sections. Idempotent."""
 
-C# client for the [AxioAPI](https://axioapi.com) REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API) and social scraper APIs. One API key, pay per request. .NET 6+, no dependencies beyond `System.Text.Json`.
+from pathlib import Path
 
-```bash
-dotnet add package AxioAPI
-export AXIOAPI_KEY=ak_...
-```
+root = Path(__file__).resolve().parent.parent
+MARK = "<!-- seo:start -->"
 
-```csharp
-using AxioAPI;
-
-using var client = new AxioApiClient();   // or new AxioApiClient("ak_...")
-
-// Keyword data API: volume, CPC and competition for up to 10 keywords per request
-var rows = await client.Group("seo").CallAsync("keywordMetrics", new { keywords = new[] { "api gateway" }, country = "us" });
-
-// Backlink API: summary with every data source that answered
-var backlinks = await client.CallAsync("seo.backlinks-summary", new { domain = "example.com" });
-Console.WriteLine(backlinks.GetProperty("partial"));
-
-try
-{
-    await client.Group("verify").CallAsync("wait", new { number = "+12025550192" });
+titles = {
+    "python": "AxioAPI Python SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "node": "AxioAPI Node.js SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "php": "AxioAPI PHP SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "go": "AxioAPI Go SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "ruby": "AxioAPI Ruby SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "java": "AxioAPI Java SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
+    "csharp": "AxioAPI .NET SDK: temp mail, SMS OTP, email validation, proxy, SEO and backlink API",
 }
-catch (AxioApiRateLimitException e)
-{
-    Console.WriteLine($"retry in {e.RetryAfter}s, request {e.RequestId}");
-}
-catch (AxioApiInsufficientCreditsException)
-{
-    Console.WriteLine("top up credits");
-}
-```
+names = {"python": "Python", "node": "Node.js", "php": "PHP", "go": "Go", "ruby": "Ruby", "java": "Java", "csharp": "C# and .NET"}
 
-- `client.Group("seo").CallAsync("keywordMetrics", ...)` or `client.CallAsync("seo.keyword-metrics", ...)` for every endpoint (camelCase, snake_case or kebab-case). `client.Operations` lists all of them with method, path and credit cost. Parameters can be an anonymous object or a dictionary.
-- Returns the `data` element as `JsonElement`. `client.RequestAsync("GET", "/api/v1/account/limits", raw: true)` returns the whole envelope. `CallBinaryAsync` returns file bytes.
-- Options: `new AxioApiOptions { BaseUrl, Timeout, MaxRetries = 2 }`. 429 is retried for all methods; 502/503/504 and network errors only for GET and DELETE.
-- Errors derive from `AxioApiException` (`Status`, `Code`, `RequestId`, `Fields`).
-
-Docs: https://axioapi.com/docs · Guides: https://axioapi.com/guides · License: MIT
-
+block = """
 <!-- seo:start -->
-## What you can build with the C# and .NET SDK
+## What you can build with the {lang} SDK
 
 | Use case | API page | Typical call |
 |---|---|---|
@@ -65,9 +42,9 @@ Free tools that need no account: [backlink checker](https://axioapi.com/tools/ba
 
 ## FAQ
 
-**Is there a C# and .NET client for the AxioAPI backlink API and keyword data API?** Yes, this package. `seo.backlinks_summary` returns the backlink summary of a domain with the figures of every data source, and `seo.keyword_metrics` returns search volume, CPC and competition for up to 10 keywords per request.
+**Is there a {lang} client for the AxioAPI backlink API and keyword data API?** Yes, this package. `seo.backlinks_summary` returns the backlink summary of a domain with the figures of every data source, and `seo.keyword_metrics` returns search volume, CPC and competition for up to 10 keywords per request.
 
-**How do I test signup emails and OTP codes from C# and .NET?** Create a disposable inbox with the temp mail API, submit its address in your form and read the message. For SMS codes, call the verify endpoint, which waits for the OTP on a public number and returns it.
+**How do I test signup emails and OTP codes from {lang}?** Create a disposable inbox with the temp mail API, submit its address in your form and read the message. For SMS codes, call the verify endpoint, which waits for the OTP on a public number and returns it.
 
 **How much does it cost?** You pay per request with credits, and each endpoint lists its price on its [API page](https://axioapi.com/apis) and in the OpenAPI spec (`x-credit-cost`). New accounts receive free credits after verification. See [pricing](https://axioapi.com/pricing).
 
@@ -75,3 +52,22 @@ Free tools that need no account: [backlink checker](https://axioapi.com/tools/ba
 
 Vietnamese: [AxioAPI tiếng Việt](https://axioapi.com/vi), [API SEO và API backlink](https://axioapi.com/vi/apis/seo).
 <!-- seo:end -->
+"""
+
+for folder, title in titles.items():
+    path = root / folder / "README.md"
+    text = path.read_text(encoding="utf-8")
+    if MARK in text:
+        text = text[: text.index(MARK)].rstrip() + "\n"
+    lines = text.split("\n")
+    lines[0] = "# " + title
+    text = "\n".join(lines).rstrip() + "\n" + block.format(lang=names[folder])
+    path.write_text(text, encoding="utf-8", newline="\n")
+    print("updated", folder)
+
+# repo-level README
+path = root / "README.md"
+text = path.read_text(encoding="utf-8")
+lines = text.split("\n")
+lines[0] = "# AxioAPI SDKs for Python, Node.js, PHP, Go, Ruby, Java and C#: temp mail, SMS OTP, email validation, proxy, SEO and backlink API"
+path.write_text("\n".join(lines), encoding="utf-8", newline="\n")

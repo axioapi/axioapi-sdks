@@ -1,4 +1,4 @@
-# AxioAPI SDKs
+# AxioAPI SDKs for Python, Node.js, PHP, Go, Ruby, Java and C#: temp mail, SMS OTP, email validation, proxy, SEO and backlink API
 
 Official client libraries for the [AxioAPI](https://axioapi.com) REST API: **temp mail API**, **receive SMS and OTP API**, **email validation API**, **proxy API**, **SEO API** (keyword data and backlink API) and social data scrapers (TikTok, Facebook, Instagram, YouTube, X, LinkedIn, Reddit, GitHub). One API key, pay per request.
 
