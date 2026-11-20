@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>AxioAPI Java client</name>
-    <description>Java client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data, social scrapers.</description>
+    <description>Official Java SDK for the AxioAPI REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API), search API and social scraper APIs. One API key.</description>
     <url>https://axioapi.com</url>
 
     <licenses>

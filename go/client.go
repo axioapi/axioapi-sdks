@@ -1,5 +1,4 @@
-// Package axioapi is the Go client for the AxioAPI REST API (https://axioapi.com): temp mail, SMS and OTP,
-// email validation, proxies, SEO and backlink data and social scrapers.
+// Package axioapi is the official Go SDK for the AxioAPI REST API (https://axioapi.com): temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API), search API and social scraper APIs.
 //
 //	c, _ := axioapi.New("ak_...")
 //	data, err := c.Group("seo").Call(ctx, "keywordMetrics", axioapi.Params{"keywords": []string{"api gateway"}, "country": "us"})

@@ -1,10 +1,10 @@
 {
     "name": "axioapi/axioapi",
-    "description": "PHP client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data, social scrapers.",
+    "description": "Official PHP SDK for the AxioAPI REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API), search API and social scraper APIs. One API key.",
     "type": "library",
     "license": "MIT",
     "homepage": "https://axioapi.com",
-    "keywords": ["api", "seo api", "backlink api", "temp mail api", "sms verification api", "proxy api", "scraper api"],
+    "keywords": ["api", "sdk", "seo api", "backlink api", "keyword api", "temp mail api", "sms verification api", "otp api", "email validation api", "proxy api", "scraper api", "search api", "serp api", "scholar api", "translation api", "php", "axioapi"],
     "require": {
         "php": ">=8.1",
         "ext-curl": "*",

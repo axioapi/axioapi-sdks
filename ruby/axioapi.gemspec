@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.name          = 'axioapi'
   spec.version       = AxioAPI::VERSION
   spec.authors       = ['AxioAPI']
-  spec.summary       = 'Ruby client for the AxioAPI REST API: temp mail, SMS and OTP, email validation, proxies, SEO and backlink data.'
-  spec.description   = 'One API key for temp mail API, receive SMS API, OTP API, email validation API, proxy API, SEO API, backlink API and social scraper APIs.'
+  spec.summary       = 'Official Ruby SDK for the AxioAPI REST API: temp mail API, SMS OTP API, email validation API, proxy API, SEO API, search API and scraper APIs.'
+  spec.description   = 'Official Ruby SDK for the AxioAPI REST API: temp mail API, receive SMS and OTP API, email validation API, proxy API, SEO API (keyword data and backlink API), search API and social scraper APIs. One API key.'
   spec.homepage      = 'https://axioapi.com'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 2.7'
