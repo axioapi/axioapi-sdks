@@ -22,11 +22,10 @@ $env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
 ### 2. Install
 
 ```bash
-composer config repositories.axioapi vcs https://github.com/axioapi/axioapi-php
-composer require axioapi/axioapi:dev-main
+composer require axioapi/axioapi
 ```
 
-Requires PHP 8.1+ with `ext-curl`. Once released on Packagist: `composer require axioapi/axioapi`.
+Requires PHP 8.1+ with `ext-curl`. Published on Packagist.
 
 ### 3. Make your first call
 

@@ -22,10 +22,10 @@ $env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
 ### 2. Install
 
 ```bash
-npm install github:axioapi/axioapi-node
+npm install axioapi
 ```
 
-Requires Node.js 18+. No dependencies, ESM, TypeScript types included. Once released on npm: `npm install axioapi`.
+Requires Node.js 18+. No dependencies, ESM, TypeScript types included.
 
 ### 3. Make your first call
 

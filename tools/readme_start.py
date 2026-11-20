@@ -24,10 +24,10 @@ $env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
 langs = {
     "python": {
         "install": """```bash
-pip install git+https://github.com/axioapi/axioapi-python.git
+pip install axioapi
 ```
 
-Requires Python 3.9+. No dependencies. Once released on PyPI: `pip install axioapi`.""",
+Requires Python 3.9+. No dependencies. Also installable from GitHub: `pip install git+https://github.com/axioapi/axioapi-python.git`.""",
         "hello": """```python
 from axioapi import AxioAPI
 
@@ -38,10 +38,10 @@ print(client.seo.keyword_metrics(keywords=["api gateway"], country="us"))
     },
     "node": {
         "install": """```bash
-npm install github:axioapi/axioapi-node
+npm install axioapi
 ```
 
-Requires Node.js 18+. No dependencies, ESM, TypeScript types included. Once released on npm: `npm install axioapi`.""",
+Requires Node.js 18+. No dependencies, ESM, TypeScript types included.""",
         "hello": """```js
 import { AxioAPI } from 'axioapi';
 
@@ -52,11 +52,10 @@ console.log(await client.seo.keywordMetrics({ keywords: ['api gateway'], country
     },
     "php": {
         "install": """```bash
-composer config repositories.axioapi vcs https://github.com/axioapi/axioapi-php
-composer require axioapi/axioapi:dev-main
+composer require axioapi/axioapi
 ```
 
-Requires PHP 8.1+ with `ext-curl`. Once released on Packagist: `composer require axioapi/axioapi`.""",
+Requires PHP 8.1+ with `ext-curl`. Published on Packagist.""",
         "hello": """```php
 <?php
 require 'vendor/autoload.php';

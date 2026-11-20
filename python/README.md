@@ -22,10 +22,10 @@ $env:AXIOAPI_KEY = "ak_your_key"      # Windows PowerShell
 ### 2. Install
 
 ```bash
-pip install git+https://github.com/axioapi/axioapi-python.git
+pip install axioapi
 ```
 
-Requires Python 3.9+. No dependencies. Once released on PyPI: `pip install axioapi`.
+Requires Python 3.9+. No dependencies. Also installable from GitHub: `pip install git+https://github.com/axioapi/axioapi-python.git`.
 
 ### 3. Make your first call
 
