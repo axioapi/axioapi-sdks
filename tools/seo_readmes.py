@@ -24,9 +24,16 @@ block = """
 |---|---|---|
 | [Temp mail API](https://axioapi.com/apis/temporary-email): disposable inboxes for signup and password-reset tests | `temporary-email` | create inbox, list messages, read message |
 | [Receive SMS API](https://axioapi.com/apis/sms) and [OTP API](https://axioapi.com/apis/verify): public numbers and "wait for the code" | `sms`, `verify` | list numbers, wait for OTP |
-| [Email validation API](https://axioapi.com/apis/email-validation): syntax, MX and disposable-address checks | `email` | validate, batch validate |
+| [Email validation API](https://axioapi.com/apis/email-validation): syntax, MX and disposable-address checks, plus transactional and outreach email sending | `email` | validate, batch validate, send |
 | [Proxy API](https://axioapi.com/apis/proxy-vpn): sticky and rotating proxy sessions by country | `proxy` | create session, rotate, close |
-| [SEO API](https://axioapi.com/apis/seo): keyword data API (volume, CPC), backlink API, domain overview and history, on-page audit | `seo` | keyword metrics, backlinks summary |
+| [SEO API](https://axioapi.com/apis/seo): keyword data API (volume, CPC), backlink API, domain overview, on-page audit | `seo` | keyword metrics, backlinks summary |
+| [Search API](https://axioapi.com/apis/search): web, image, news, video, maps and shopping results, AI Overview and autocomplete | `search` | web search, news search |
+| Scholar API: Google Scholar paper search, author profiles and citation formats | `scholar` | search papers, author profile |
+| Text AI: neural translation, text generation and grammar check | `text`, `grammar` | translate, generate, check grammar |
+| Audio and video AI: speech-to-text, text-to-speech, AI image generation, video transcripts and tags | `audio`, `tts`, `ai-image`, `video` | transcribe, text to speech, generate image |
+| YouTube AI summarizer and webpage content extraction | `youtube`, `webpage` | summarize video, extract page |
+| [Coupon API](https://axioapi.com/apis/coupons) and product price history: store promo codes and historical prices | `coupons`, `products`, `ecommerce` | search coupons, price history |
+| DNS, BIN, technology and local lead APIs: DNS records, card BIN lookup, website tech stack, Google Maps business leads | `dns`, `bin`, `tech`, `local` | resolve DNS, BIN lookup, tech profile |
 | [TikTok](https://axioapi.com/apis/social-tiktok), [Facebook](https://axioapi.com/apis/social-facebook), [Instagram](https://axioapi.com/apis/social-instagram), [YouTube](https://axioapi.com/apis/social-youtube), [X (Twitter)](https://axioapi.com/apis/social-twitter), [LinkedIn](https://axioapi.com/apis/social-linkedin) and [Reddit](https://axioapi.com/apis/social-reddit) scraper APIs | `social` | profiles, posts, comments, transcripts |
 
 ## Guides with working code

@@ -13,7 +13,7 @@
   },
   "files": ["src"],
   "engines": { "node": ">=18" },
-  "scripts": { "test": "node --test test/" },
+  "scripts": { "test": "node --test \"test/*.js\"" },
   "keywords": ["api", "seo api", "backlink api", "temp mail api", "sms verification api", "proxy api", "scraper api", "axioapi"],
   "license": "MIT",
   "homepage": "https://axioapi.com",
