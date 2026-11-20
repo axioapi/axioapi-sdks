@@ -100,6 +100,28 @@
             "binary": false,
             "auth": true
         },
+        "audio.transcribe": {
+            "method": "POST",
+            "path": "/api/v1/audio/transcribe",
+            "summary": "Speech to text transcription using Whisper LPU",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "file",
+                "audio_base64",
+                "file_base64",
+                "url",
+                "filename",
+                "model",
+                "language",
+                "prompt",
+                "response_format",
+                "temperature"
+            ],
+            "binary": false,
+            "auth": true
+        },
         "audio.tts": {
             "method": "POST",
             "path": "/api/v1/audio/tts",
@@ -299,6 +321,26 @@
             "binary": false,
             "auth": true
         },
+        "coupons.search": {
+            "method": "GET",
+            "path": "/api/v1/coupons",
+            "summary": "Store Coupon & Promo Code Search",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "url",
+                "price",
+                "quantity",
+                "product_name",
+                "shop_username",
+                "order",
+                "domain",
+                "store"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
         "dns.resolve": {
             "method": "GET",
             "path": "/api/v1/dns/{domain}",
@@ -326,6 +368,26 @@
                 "page"
             ],
             "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "email.send": {
+            "method": "POST",
+            "path": "/api/v1/email/send",
+            "summary": "Transactional and outreach email dispatch",
+            "cost": 1,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "to",
+                "subject",
+                "html",
+                "text",
+                "from_name",
+                "from_email",
+                "reply_to",
+                "tags"
+            ],
             "binary": false,
             "auth": true
         },
@@ -426,6 +488,25 @@
             "binary": false,
             "auth": false
         },
+        "products.price-history": {
+            "method": "GET",
+            "path": "/api/v1/products/price-history",
+            "summary": "Product Historical Price Tracking",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "price",
+                "url",
+                "asin",
+                "timeframe",
+                "variant_id",
+                "sku",
+                "store_id"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
         "proxy.close-session": {
             "method": "DELETE",
             "path": "/api/v1/proxy/sessions/{session}",
@@ -495,6 +576,213 @@
             "binary": false,
             "auth": true
         },
+        "scholar.author": {
+            "method": "GET",
+            "path": "/api/v1/scholar/author",
+            "summary": "Google Scholar author profile & metrics",
+            "cost": 1.5,
+            "path_params": [],
+            "query": [
+                "id",
+                "start",
+                "limit",
+                "sort",
+                "hl",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "scholar.cite": {
+            "method": "GET",
+            "path": "/api/v1/scholar/cite",
+            "summary": "Google Scholar paper citation formats",
+            "cost": 0.5,
+            "path_params": [],
+            "query": [
+                "id",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "scholar.search": {
+            "method": "GET",
+            "path": "/api/v1/scholar/search",
+            "summary": "Google Scholar papers search",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "page",
+                "limit",
+                "start",
+                "as_ylo",
+                "as_yhi",
+                "cites",
+                "hl",
+                "fresh"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.ai-overview": {
+            "method": "GET",
+            "path": "/api/v1/search/ai-overview",
+            "summary": "AI Overview",
+            "cost": 2,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "hl",
+                "aio_engine",
+                "model",
+                "mkt",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.autocomplete": {
+            "method": "GET",
+            "path": "/api/v1/search/autocomplete",
+            "summary": "Search autocomplete suggestions",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "mkt",
+                "hl",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.images": {
+            "method": "GET",
+            "path": "/api/v1/search/images",
+            "summary": "Image search results",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "page",
+                "limit",
+                "mkt",
+                "hl",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.maps": {
+            "method": "GET",
+            "path": "/api/v1/search/maps",
+            "summary": "Maps Search",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "hl",
+                "limit",
+                "advanced",
+                "mkt",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.news": {
+            "method": "GET",
+            "path": "/api/v1/search/news",
+            "summary": "News search results",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "page",
+                "limit",
+                "mkt",
+                "hl",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.shopping": {
+            "method": "GET",
+            "path": "/api/v1/search/shopping",
+            "summary": "Shopping product results",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "hl",
+                "page",
+                "limit",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.videos": {
+            "method": "GET",
+            "path": "/api/v1/search/videos",
+            "summary": "Video search results",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "page",
+                "limit",
+                "advanced",
+                "page_token",
+                "mkt",
+                "hl",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "search.web": {
+            "method": "GET",
+            "path": "/api/v1/search/web",
+            "summary": "Web search results",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "q",
+                "cc",
+                "page",
+                "limit",
+                "hl",
+                "advanced",
+                "aio",
+                "model",
+                "mkt",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
         "seo.backlinks-summary": {
             "method": "GET",
             "path": "/api/v1/seo/domains/{domain}/backlinks",
@@ -504,21 +792,6 @@
                 "domain"
             ],
             "query": [],
-            "body": [],
-            "binary": false,
-            "auth": true
-        },
-        "seo.domain-history": {
-            "method": "GET",
-            "path": "/api/v1/seo/domains/{domain}/history",
-            "summary": "Domain history",
-            "cost": 5,
-            "path_params": [
-                "domain"
-            ],
-            "query": [
-                "months"
-            ],
             "body": [],
             "binary": false,
             "auth": true
@@ -619,7 +892,9 @@
             "query": [
                 "country",
                 "page",
-                "limit"
+                "limit",
+                "has_verify",
+                "verify"
             ],
             "body": [],
             "binary": false,
@@ -727,6 +1002,7 @@
             "path_params": [],
             "query": [
                 "q",
+                "page_id",
                 "country",
                 "search_type",
                 "status",
@@ -895,9 +1171,7 @@
             "path_params": [
                 "username"
             ],
-            "query": [
-                "limit"
-            ],
+            "query": [],
             "body": [],
             "binary": false,
             "auth": true
@@ -1276,9 +1550,7 @@
             "path_params": [
                 "username"
             ],
-            "query": [
-                "limit"
-            ],
+            "query": [],
             "body": [],
             "binary": false,
             "auth": true
@@ -1308,19 +1580,6 @@
             "query": [
                 "url"
             ],
-            "body": [],
-            "binary": false,
-            "auth": true
-        },
-        "social.youtube-videos": {
-            "method": "GET",
-            "path": "/api/v1/social/youtube/videos/{id}",
-            "summary": "{Id}",
-            "cost": null,
-            "path_params": [
-                "id"
-            ],
-            "query": [],
             "body": [],
             "binary": false,
             "auth": true
@@ -1399,7 +1658,18 @@
             "cost": 0.5,
             "path_params": [],
             "query": [
-                "q"
+                "q",
+                "country",
+                "language",
+                "sort",
+                "upload_date",
+                "duration",
+                "type",
+                "features",
+                "continuation",
+                "gl",
+                "hl",
+                "params"
             ],
             "body": [],
             "binary": false,
@@ -1456,6 +1726,17 @@
             "body": [],
             "binary": false,
             "auth": true
+        },
+        "store-selectors.index": {
+            "method": "GET",
+            "path": "/api/v1/store-selectors",
+            "summary": "Store Selectors",
+            "cost": null,
+            "path_params": [],
+            "query": [],
+            "body": [],
+            "binary": false,
+            "auth": false
         },
         "tech.profile": {
             "method": "GET",
@@ -1571,6 +1852,22 @@
             "binary": false,
             "auth": true
         },
+        "text.translate": {
+            "method": "POST",
+            "path": "/api/v1/text/translate",
+            "summary": "Neural text translation with word alignment",
+            "cost": 1,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "text",
+                "texts",
+                "from",
+                "to"
+            ],
+            "binary": false,
+            "auth": true
+        },
         "tts.voices": {
             "method": "GET",
             "path": "/api/v1/tts/voices",
@@ -1593,7 +1890,8 @@
             "query": [],
             "body": [
                 "number",
-                "since"
+                "since",
+                "timeout"
             ],
             "binary": false,
             "auth": true
@@ -1625,6 +1923,37 @@
                 "lang"
             ],
             "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "webpage.extract": {
+            "method": "GET",
+            "path": "/api/v1/webpage/extract",
+            "summary": "Webpage content extraction",
+            "cost": 1,
+            "path_params": [],
+            "query": [
+                "url",
+                "include_html",
+                "proxy",
+                "fields"
+            ],
+            "body": [],
+            "binary": false,
+            "auth": true
+        },
+        "youtube.summarize": {
+            "method": "POST",
+            "path": "/api/v1/youtube/summarize",
+            "summary": "YouTube video AI summarizer and study notes",
+            "cost": 3,
+            "path_params": [],
+            "query": [],
+            "body": [
+                "video",
+                "mode",
+                "lang"
+            ],
             "binary": false,
             "auth": true
         }

@@ -1,11 +1,14 @@
 <?php
 
+use App\ApiHub\OpenApiGenerator;
+use Illuminate\Contracts\Console\Kernel;
+
 // Builds sdk/spec/operations.json from the live OpenAPI document. Run from the repo root: php sdk/tools/generate_registry.php
 require __DIR__.'/../../vendor/autoload.php';
 $app = require __DIR__.'/../../bootstrap/app.php';
-$app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+$app->make(Kernel::class)->bootstrap();
 
-$doc = app(App\ApiHub\OpenApiGenerator::class)->document();
+$doc = app(OpenApiGenerator::class)->document();
 $ops = [];
 foreach ($doc['paths'] as $path => $methods) {
     foreach ($methods as $method => $op) {

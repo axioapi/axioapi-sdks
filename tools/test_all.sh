@@ -22,7 +22,7 @@ run() {
 have() { command -v "$1" >/dev/null 2>&1; }
 
 have python && run python bash -c "cd '$ROOT/python' && PYTHONPATH=src python -m unittest discover -s tests"
-have node && run node bash -c "cd '$ROOT/node' && node --test test/"
+have node && run node bash -c "cd '$ROOT/node' && node --test test/*.js"
 if have php && [ -f "$ROOT/../vendor/bin/phpunit" ]; then run php bash -c "cd '$ROOT/php' && php ../../vendor/bin/phpunit"; elif have phpunit; then run php bash -c "cd '$ROOT/php' && phpunit"; fi
 have dotnet && run csharp bash -c "cd '$ROOT/csharp/tests/AxioAPI.Tests' && dotnet test"
 GO_BIN="${GO_BIN:-$(command -v go || true)}"
